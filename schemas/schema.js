@@ -13,10 +13,23 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     {
-      title: "Пост",
+      title: "Постууд",
       name: "post",
       type: "document",
-      fields: [{ title: "posts", name: "title", type: "string" }],
+      fields: [
+        {
+          title: "title of post",
+          name: "title",
+          type: "string",
+          description: "main title of blog, it cant be bigger than 50 letters.",
+        },
+        {
+          title: "Дэд гарчиг",
+          name: "subtitle",
+          type: "string",
+          dscription: "write post type as text.",
+        },
+      ],
     },
   ]),
 });
