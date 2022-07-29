@@ -22,12 +22,66 @@ export default createSchema({
           name: "title",
           type: "string",
           description: "main title of blog, it cant be bigger than 50 letters.",
+          validation: (Rule) => [
+            Rule.required()
+              .min(10)
+
+              .error("Гарчиг богино тусмаа сайн.(10 тэмдэгтээс багагүй.)"),
+            Rule.required()
+
+              .max(80)
+              .warning("Гарчиг богино тусмаа сайн.(80 тэмдэгтээс хэтрэхгүй.)"),
+          ],
         },
         {
           title: "Дэд гарчиг",
           name: "subtitle",
           type: "string",
           dscription: "write post type as text.",
+        },
+        {
+          title: "зураг",
+          name: "cover_image",
+          type: "image",
+        },
+        {
+          title: "огноо",
+          name: "date",
+          type: "datetime",
+        },
+        {
+          title: "хаяг",
+          name: "slug",
+          type: "slug",
+          options: {
+            source: "title",
+            maxLength: 200, // will be ignored if slugify is set
+            slugify: (input) =>
+              input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          },
+        },
+        {
+          title: "Нийтлэгч",
+          name: "publisher",
+          type: "reference",
+          to: [{ type: "publisher" }],
+        },
+      ],
+    },
+    {
+      title: "нийтлэгч",
+      name: "publisher",
+      type: "document",
+      fields: [
+        {
+          title: "нэр",
+          name: "publisher_name",
+          type: "string",
+        },
+        {
+          title: "зураг",
+          name: "publisher_image",
+          type: "image",
         },
       ],
     },
