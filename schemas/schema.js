@@ -24,7 +24,7 @@ export default createSchema({
           description: "main title of blog, it cant be bigger than 50 letters.",
           validation: (Rule) => [
             Rule.required()
-              .min(10)
+              .min(5)
 
               .error("Гарчиг богино тусмаа сайн.(10 тэмдэгтээс багагүй.)"),
             Rule.required()
@@ -43,6 +43,18 @@ export default createSchema({
           title: "зураг",
           name: "cover_image",
           type: "image",
+        },
+        // portableText.js
+        {
+          name: "portableText",
+          type: "array",
+          title: "Постын агуулга",
+          of: [
+            {
+              type: "block",
+            },
+            { type: "image" },
+          ],
         },
         {
           title: "огноо",
