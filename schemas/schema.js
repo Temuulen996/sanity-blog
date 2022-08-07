@@ -44,6 +44,7 @@ export default createSchema({
           name: "cover_image",
           type: "image",
         },
+
         // portableText.js
         {
           name: "portableText",
@@ -54,6 +55,9 @@ export default createSchema({
               type: "block",
             },
             { type: "image" },
+            {
+              type: "code",
+            },
           ],
         },
         {
