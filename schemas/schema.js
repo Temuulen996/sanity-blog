@@ -43,6 +43,7 @@ export default createSchema({
           title: "зураг",
           name: "cover_image",
           type: "image",
+          fields: [{ title: "Зургмйн тайлбар", name: "alt", type: "text" }],
         },
 
         // portableText.js
@@ -54,9 +55,22 @@ export default createSchema({
             {
               type: "block",
             },
-            { type: "image" },
+            {
+              type: "image",
+              fields: [
+                {
+                  title: "Зургмйн тайлбар",
+                  name: "alt",
+                  type: "text",
+                  options: { isHighlighted: true },
+                },
+              ],
+            },
             {
               type: "code",
+              options: {
+                withFilename: true,
+              },
             },
           ],
         },
