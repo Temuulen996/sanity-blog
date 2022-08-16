@@ -44,6 +44,7 @@ export default createSchema({
           name: "cover_image",
           type: "image",
           fields: [{ title: "Зургмйн тайлбар", name: "alt", type: "text" }],
+          options: { hotspot: true },
         },
 
         // portableText.js
@@ -63,6 +64,20 @@ export default createSchema({
                   name: "alt",
                   type: "text",
                   options: { isHighlighted: true },
+                },
+                {
+                  title: "Зургмйн байрлал",
+                  name: "position",
+                  type: "string",
+                  options: {
+                    isHighlighted: true,
+                    list: [
+                      { title: "голлуулах", value: "center" },
+                      { title: "баруун талд", value: "right" },
+                      { title: "зүүн талд", value: "left" },
+                    ],
+                    layout: "radio",
+                  },
                 },
               ],
             },
